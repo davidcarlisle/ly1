@@ -83,8 +83,8 @@ interpreter must be able to provide Times-Roman, so it seems a
 good choice as the error font.  Yet you may wish to change
 this for any reason; just edit the lines
 
-\DeclareErrorFont{LY1}{ptm}{m}{n}{10}
-\DeclareFontSubstitution{LY1}{ptm}{m}{n}
+    \DeclareErrorFont{LY1}{ptm}{m}{n}{10}
+    \DeclareFontSubstitution{LY1}{ptm}{m}{n}
 
 at the top of ly1enc.def to refer to some other font set.  For example
 if you have Y&Y TeX's "Lucida Bright" distribution you could change the
@@ -119,6 +119,7 @@ that occur in LY1 occur in the same place in T1.
 The only letters that might possibly appear in a hyphenation
 table that are in different positions in T1 and LY1 are:
 
+```
 \oe  (low position OT1 high new)
 \ss  (low position OT1 high new)
 \v{s}
@@ -128,7 +129,7 @@ table that are in different positions in T1 and LY1 are:
            so this will only affect languages (Turkish?) that use
            an unaccented \i)
 \"{y}
-
+```
 
 It should be noted that for those symbols that occur twice in
 LY1, the "high" copy is used if it coincides with the position
@@ -167,16 +168,16 @@ available hyphenation tables unfortunately do "hard wire" the
 T1 character codes in this way.
 
 
-Copyright 1997 David Carlisle
-(Updated Feb. 2001 Walter Schmidt)
-(Updated Jun. 2010 Karl Berry)
-(Updated Oct. 2010 Karl Berry -- Times small caps faked as intended.)
-(Updated Jan. 2011 Karl Berry
- -- missing map entries for ptmrr8ye and ptmr8yn.
- -- irrelevant {phvl*,psyr,pzdr}.tfm removed.
- -- relevant ptm{b,r}c8y.vf included, and corresponding ptm{b,r}c8y.tfm.
- Thanks to Bruno Voisin for much research and debugging.
-)
+Copyright 1997 David Carlisle  
+(Updated Feb. 2001 Walter Schmidt)  
+(Updated Jun. 2010 Karl Berry)  
+(Updated Oct. 2010 Karl Berry -- Times small caps faked as intended.)  
+(Updated Jan. 2011 Karl Berry  
+ -- missing map entries for ptmrr8ye and ptmr8yn.  
+ -- irrelevant {phvl*,psyr,pzdr}.tfm removed.  
+ -- relevant ptm{b,r}c8y.vf included, and corresponding ptm{b,r}c8y.tfm.  
+ Thanks to Bruno Voisin for much research and debugging.  
+)  
 (Updated June 2022 David Carlisle )
 
 All the files in this directory may be redistributed and/or modified
