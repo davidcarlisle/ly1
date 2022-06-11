@@ -1,0 +1,33 @@
+#!/bin/bash
+set -e
+
+mkdir -p build/fonts/enc/dvips/ly1
+cp enc/texnansi.enc build/fonts/enc/dvips/ly1
+
+mkdir -p build/fonts/map/dvips/ly1
+cp map/*.map build/fonts/map/dvips/ly1
+
+mkdir -p build/fonts/vf/adobe/ly1
+cp vf/*.vf build/fonts/vf/adobe/ly1
+
+mkdir -p build/fonts/tfm/adobe/ly1
+cp tfm/*.tfm build/fonts/tfm/adobe/ly1
+
+mkdir -p build/tex/latex/ly1
+cp latex/*.def latex/*.fd latex/*.sty build/tex/latex/ly1
+
+mkdir -p build/tex/plain/ly1
+cp plain/texnansi.tex build/tex/plain/ly1
+
+mkdir -p build/doc/latex/ly1
+cp README.md build/doc/latex/ly1
+
+cd build
+zip -r ly1.tds.zip fonts tex doc
+
+cp ly1.tds.zip ../..
+
+cd ../..
+
+zip -r ly1-ctan.zip ly1/{README.md,enc,latex,map,plain,tfm,vf} ly1.tds.zip
+mv ly1-ctan.zip ly1.tds.zip ly1

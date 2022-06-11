@@ -1,4 +1,4 @@
-LaTeX support for `texnansi' encoding (LY1)
+LaTeX support for texnansi encoding (LY1)
 ===========================================
 
 Installing
@@ -18,20 +18,21 @@ files here are not used.)
 Usage
 =====
 
-The font encoding `LY1' corresponds to the `texnansi' encoding as used
-by default in the Y&Y TeX system (http://tug.org/yandy).  There is also
-an option to support the `ansinew' encoding that is the default encoding
-in Microsoft Windows.
+The font encoding `LY1` corresponds to the `texnansi` encoding
+originally used in the Y&Y TeX system.  There is also an option to
+support the `ansinew` encoding that is the default encoding in
+Microsoft Windows.
 
-The main file is ly1enc.def. This contains the declaration of
-the encoding. To use `texnansi' encoded fonts within LaTeX, 
+The main file is `ly1enc.def`. This contains the declaration of
+the encoding. To use `texnansi` encoded fonts within LaTeX, 
 typically you just need to add the line
+
 
 	\usepackage[LY1]{fontenc}
 
 to your document preamble.
 
-An alternative to the above line is to use the `texnansi' package
+An alternative to the above line is to use the `texnansi` package
 
 	\usepackage{texnansi}
 
@@ -49,32 +50,32 @@ easily be changed to
 
 	\usepackage[T1]{fontenc}
 
-The texnansi package has a package option `ansinew' which
+The texnansi package has a package option `ansinew` which
 modifies the LY1 encoding to refer to that MS Windows
 encoding.  However you should only do this if your TeX system
-can not reencode fonts to support T1 or LY1.  The `ansinew'
+can not reencode fonts to support T1 or LY1.  The `ansinew`
 treatment of the left quote ` as a grave accent makes it
 rather unsuitable for TeX use.  It also lacks several useful
 glyphs.  However if you need to, you can do:
 
 	\usepackage[ansinew]{texnansi}
 
-The other possible reason for using the `texnansi' package
+The other possible reason for using the `texnansi` package
 relates to the use of the lowercase table in the hyphenation
 algorithm.  This is described below, but it is unfortunately
 of necessity rather technical, and you may want to stop
 reading at that point.
 
 LY1 matches OT1 well enough that you can usually use it in that role
-also.  You can \input texnansi if you want this to work exactly even in
-plain TeX.
+also.  You can `\input` texnansi if you want this to work exactly even
+in plain TeX.
 
 Having declared the LY1 encoding to LaTeX, LaTeX will need to
 know the fonts that are available in this encoding.  This
 distribution includes TeX metrics, font definition files and
-map files for the common `Standard PostScript' fonts.
+map files for the common "Standard PostScript" fonts.
 
-For each encoding LaTeX needs to know an `error font' which is
+For each encoding LaTeX needs to know an `error font` which is
 its fall back in the case that the font substitution system
 can find nothing better to do.  ly1enc.def specifies that the
 Error Font for LY1 is Adobe Times-Roman.  Any PostScript
@@ -86,8 +87,8 @@ this for any reason; just edit the lines
 \DeclareFontSubstitution{LY1}{ptm}{m}{n}
 
 at the top of ly1enc.def to refer to some other font set.  For example
-if you have Y&Y TeX's `Lucida Bright' distribution you could change the
-two occurrences of {ptm} to {hlh} to make LaTeX fall back on Lucida
+if you have Y&Y TeX's "Lucida Bright" distribution you could change the
+two occurrences of `{ptm}` to `{hlh}` to make LaTeX fall back on Lucida
 Bright if all else fails.  Please follow the LPPL and do not
 capriciously alter ly1enc.def in other ways.
 
@@ -107,7 +108,7 @@ set in, are lowercased using the table current at the *end* of
 the paragraph before being checked for hyphenation.  Because
 of these limitations in TeX's hyphenation algorithm, LaTeX
 does not support changing the lowercase table mid document, so
-if the `texnansi' package is used then the `texnansi'
+if the `texnansi` package is used then the `texnansi`
 lowercase table will be used for all fonts (whether or not LY1
 encoded) and conversely if it is not used, the T1 table will
 be used, even for LY1 encoded fonts.  The reason why this
@@ -130,8 +131,8 @@ table that are in different positions in T1 and LY1 are:
 
 
 It should be noted that for those symbols that occur twice in
-LY1, the `high' copy is used if it coincides with the position
-used in T1 (as in the case of \ae, \o) otherwise the `low'
+LY1, the "high" copy is used if it coincides with the position
+used in T1 (as in the case of \ae, \o) otherwise the "low"
 copy will be used which will coincide with the OT1 position
 (\oe, \ss).  (Unless the setup for ansinew is enabled in which
 case the high position is always used.)
@@ -162,7 +163,7 @@ but rather always accessed characters by control sequences
 such as \ss.  This would allow the remapping to be done via
 inputting a file such as ly1enc.def rather than by editing the
 hyphenation file.  However currently most of the publicly
-available hyphenation tables unfortunately do `hard wire' the
+available hyphenation tables unfortunately do "hard wire" the
 T1 character codes in this way.
 
 
